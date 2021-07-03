@@ -1,9 +1,10 @@
-/* import {Router} from 'express';
-
+import { Router } from 'express';
 import auth from './auth';
-
+import user from './usuario'
 const routes = Router();
 
 routes.use('/auth', auth);
 
-export default routes; */
+routes.use('/users', user);
+
+export default routes;
