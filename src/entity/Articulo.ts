@@ -34,8 +34,8 @@ export class Articulo{
     updatedAt: Date;
 
     @OneToMany(() => DetalleVenta, detalleVenta => detalleVenta.articulo)
-    detalleVentas: DetalleVenta[];
+    public detalleVentas !: DetalleVenta[];
 
     @OneToMany(() => DetalleIngreso, detalleIngreso => detalleIngreso.articulo)
-    detalleIngresos: DetalleIngreso[];
+    public detalleIngresos !: DetalleIngreso[];
 }
