@@ -4,18 +4,13 @@ import { Ingreso } from "./Ingreso";
 
 @Entity()
 export class DetalleIngreso{
-    @PrimaryColumn()
-    ingresoId: number;
+    @PrimaryGeneratedColumn()
+    public id!: number;
 
     @ManyToOne(() => Ingreso, ingreso => ingreso.detalleIngresos)
-    @JoinColumn({ name: "ingresoId"})
     ingreso: Ingreso;
 
-    @PrimaryColumn()
-    articuloId: number;
-
     @ManyToOne(() => Articulo, ingreso => ingreso.detalleIngresos)
-    @JoinColumn({ name: "articuloId"})
     articulo: Articulo;
 
     @Column()
