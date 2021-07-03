@@ -4,32 +4,28 @@ import { Venta } from "./Venta";
 
 @Entity()
 export class DetalleVenta{
-    
-    @PrimaryColumn()
-    ventaId: number;
 
-    @ManyToOne(() => Venta, venta => venta.detalleVentas)
-    @JoinColumn({ name: "ventaId"})
-    venta: Venta;
-
-    @PrimaryColumn()
-    articuloId: number;
-
-    @ManyToOne(() => Articulo, articulo => articulo.detalleVentas)
-    @JoinColumn({ name: "articuloId"})
-    articulo: Articulo;
+    @PrimaryGeneratedColumn()
+    public id!: number;
 
     @Column()
-    cantidad: number;@Column()
+    public cantidad: number;
+    
+    @Column()
     @CreateDateColumn()
-    createAt: Date;
-
+    public createAt !: Date;
+    
     @Column()
     @UpdateDateColumn()
-    updatedAt: Date;
-
+    public updatedAt !: Date;
+    
     @Column("double")
-    precio: number;
-
-
+    public precio !: number;
+    
+    @ManyToOne(() => Venta, venta => venta.detalleVentas)
+    public venta !: Venta;
+    
+    @ManyToOne(() => Articulo, articulo => articulo.detalleVentas)
+    public articulo !: Articulo;
+    
 }
