@@ -15,7 +15,7 @@ export class Venta{
     user: User;
 
     @OneToMany(() => DetalleVenta, detalleVenta => detalleVenta.venta)
-    detalleVentas: DetalleVenta[];
+    public detalleVentas !: DetalleVenta[];
 
     @Column()
     @CreateDateColumn()
